@@ -189,6 +189,8 @@ const Productform = ({ productdata }) => {
                   key={index}
                   src={image}
                   alt="preview"
+                  height={100}
+                  width={100}
                   className="w-20 h-20 object-cover rounded border border-black"
                 />
               ))
@@ -201,6 +203,8 @@ const Productform = ({ productdata }) => {
                   key={index}
                   src={URL.createObjectURL(image)}
                   alt="preview"
+                  height={100}
+                  width={100}
                   className="w-20 h-20 object-cover rounded border border-black"
                 />
               ))
