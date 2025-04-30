@@ -4,7 +4,7 @@ import Link from "next/link";
 import Layout from "../component/Layout";
 import axios from "axios";
 
-const page = () => {
+const Page = () => {
   const [products, setproducts] = useState([]);
 
   useEffect(() => {
@@ -73,4 +73,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

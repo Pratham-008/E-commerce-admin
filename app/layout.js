@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SessionWrapper from "./component/SessionWrapper";
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,12 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <head>
-        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <Script src="https://cdn.lordicon.com/lordicon.js"/>
       </head>
       <SessionWrapper>
-        <body className={inter.className}>
-          {children}
-        </body>
+        <body className={inter.className}>{children}</body>
       </SessionWrapper>
     </html>
   );

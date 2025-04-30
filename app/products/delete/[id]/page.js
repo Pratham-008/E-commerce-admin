@@ -4,7 +4,7 @@ import Layout from "@/app/component/Layout";
 import { useRouter, useParams } from "next/navigation";
 import axios from "axios";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { id } = useParams();
   const router = useRouter();
   const goback = () => {
@@ -25,19 +25,25 @@ const page = ({ params }) => {
 
   return (
     <Layout>
-        <h1 className="text-2xl font-bold justify-center flex">
-          Do you really want to delete this product
-        </h1>
-        <div className="justify-center flex gap-4">
-          <button className="px-3 py-2 font-bold bg-green-500 rounded-lg text-black cursor-pointer  mt-4" onClick={() => gofordelete()}>
-            Yes
-          </button>
-          <button className="px-3 py-2 font-bold  bg-red-500 text-white rounded-lg cursor-pointer  mt-4" onClick={() => goback()}>
-            No
-          </button>
-        </div>
+      <h1 className="text-2xl font-bold justify-center flex">
+        Do you really want to delete this product
+      </h1>
+      <div className="justify-center flex gap-4">
+        <button
+          className="px-3 py-2 font-bold bg-green-500 rounded-lg text-black cursor-pointer  mt-4"
+          onClick={() => gofordelete()}
+        >
+          Yes
+        </button>
+        <button
+          className="px-3 py-2 font-bold  bg-red-500 text-white rounded-lg cursor-pointer  mt-4"
+          onClick={() => goback()}
+        >
+          No
+        </button>
+      </div>
     </Layout>
   );
 };
 
-export default page;
+export default Page;

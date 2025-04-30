@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Layout from "../component/Layout";
 import axios from "axios";
 import Link from "next/link";
-const page = () => {
+const Page = () => {
   const [edit, setedit] = useState(false);
   const [editcat, seteditcat] = useState({});
   const [name, setname] = useState("");
@@ -242,4 +242,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

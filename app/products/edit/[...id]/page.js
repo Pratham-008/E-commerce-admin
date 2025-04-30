@@ -5,7 +5,7 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import Productform from "@/app/component/Productform";
 
-const page = () => {
+const Page = () => {
   const [data, setdata] = useState(null);
   const { id } = useParams();
 
@@ -34,4 +34,4 @@ const page = () => {
   }
 };
 
-export default page;
+export default Page;

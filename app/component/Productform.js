@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Productform = ({ productdata }) => {
   const {
@@ -184,7 +185,7 @@ const Productform = ({ productdata }) => {
               <div>No Images Exist</div>
             ) : (
               existingimages.map((image, index) => (
-                <img
+                <Image
                   key={index}
                   src={image}
                   alt="preview"
@@ -196,7 +197,7 @@ const Productform = ({ productdata }) => {
               <div>No Images Added</div>
             ) : (
               images.map((image, index) => (
-                <img
+                <Image
                   key={index}
                   src={URL.createObjectURL(image)}
                   alt="preview"
