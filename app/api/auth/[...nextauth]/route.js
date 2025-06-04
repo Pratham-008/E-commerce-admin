@@ -12,6 +12,12 @@ const handler = NextAuth({
     }),
   ],
   adapter: MongoDBAdapter(client),
+  callbacks: {
+    async session({ session, user }) {
+      session.user.id = user.id; // Add user id to session
+      return session;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };

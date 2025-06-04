@@ -9,6 +9,7 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+console.log("Cloudinary config:", cloudinary.v2.config());
 export async function POST(req) {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
@@ -32,10 +33,20 @@ export async function POST(req) {
       images.map(async (image) => {
         const bytes = await image.arrayBuffer();
         const buffer = Buffer.from(bytes);
+        const timestamp = Math.round(new Date().getTime() / 1000);
+        const signature = cloudinary.v2.utils.api_sign_request(
+          { timestamp },
+          process.env.CLOUDINARY_API_SECRET
+        );
 
         return new Promise((resolve, reject) => {
           const uploadStream = cloudinary.v2.uploader.upload_stream(
-            { resource_type: "image" },
+            {
+              resource_type: "image",
+              timestamp,
+              api_key: process.env.CLOUDINARY_API_KEY,
+              signature,
+            },
             (error, result) => {
               if (error) reject(error);
               else resolve(result.secure_url);
@@ -73,6 +84,7 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Error in POST /api/products:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }
