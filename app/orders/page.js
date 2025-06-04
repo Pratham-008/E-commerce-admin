@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../component/Layout";
 import Title from "../component/Title";
-import Table from "../component/Table";
 import axios from "axios";
 
-const page = () => {
+const Page = () => {
   const [orders, setorders] = useState([]);
   const [updating, setUpdating] = useState({});
 
@@ -127,4 +126,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Layout from "../component/Layout";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 const Page = () => {
   const { data: session } = useSession();
@@ -46,7 +47,7 @@ const Page = () => {
           alignItems: 'center',
           marginBottom: '24px'
         }}>
-          <img
+          <Image
             src={user.image || "/avatar.svg"}
             alt="Profile"
             style={{
