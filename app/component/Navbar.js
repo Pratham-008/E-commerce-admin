@@ -34,7 +34,7 @@ const Navbar = ({ show }) => {
           />
         </svg>
 
-        <span className="text-black">E-commerce Admin</span>
+        <span className="text-black whitespace-nowrap">E-commerce Admin</span>
       </a>
       <nav className="flex-col space-y-2 pl-4 pr-4 text-gray-500">
         <Link

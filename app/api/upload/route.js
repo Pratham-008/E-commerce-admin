@@ -10,13 +10,10 @@ export default async function POST(req) {
     });
   });
 
-  return new Response(
-    JSON.stringify({ message: "Success", data }),
-    {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    }
-  );
+  return new Response(JSON.stringify({ message: "Success", data }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  });
 }
 
 export const config = {
